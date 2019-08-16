@@ -20,26 +20,27 @@
                         <h4>journeys beyond the map</h4>
                     </div>
                     <div class="topnav" id="myTopnav">
-                        <a href="#signup">Sign Up</a>
+                        <a href="signup.html">Sign Up</a>
                         <a href="#about">About</a>
-                        <a href="contact.html">Contact</a>
+                        <a href="#contact" class="active">Contact</a>
                         <a href="#gallery">Gallery</a>
                         <a href="#services">Services</a>
-                        <a href="#" class="active">Home</a>
+                        <a href="index.html">Home</a>
                     </div>
                 </div>
             </nav> 
         </header> 
-        <div class="container" id="main-content">
-            <div id="background1">
-                <img src="bg1.jpg">
-                <div id="text1">
-                    <p>There are trips that fit a sheet of paper. Then there are experiences that surpass the full power of words.Trips that take us beyond the map and, on the ride of the five senses, transport us beyond the reality we know!</p>
-                    <button class="btn">Book Your Stay</button>
-                </div>
-            </div>
-            <div id="background2">
-                <img src="bg2.jpg">
+        <div id="contact-content">
+            <h1>Contact Us</h1>
+            <p>Write to us at info@mysite.com or simply fill this form<br>and we’ll get back to you shortly:</p>
+            <div class="container">
+                <form action="/action_page.php">
+                    <input type="text" id="name" name="name" placeholder="Name"><br>
+                    <input type="email" id="email" name="email" placeholder="Email"><br>
+                    <input type="text" id="subject" name="subject" placeholder="Subject"><br>
+                    <textarea id="subject" name="subject" placeholder="Message" style="height:200px"></textarea><br>
+                    <input type="submit" value="Submit">
+                </form>
             </div>
         </div>
         <footer class="panel-footer">
