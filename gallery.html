@@ -4,11 +4,12 @@
         <title>
             Intelligent Tourist System
         </title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	    <meta charset = "utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/yourcode.js"></script>
 	</head>
     <body>
         <header>
@@ -20,57 +21,54 @@
                         <h4>journeys beyond the map</h4>
                     </div>
                     <div class="topnav" id="myTopnav">
-                        <a href="login.html">Login</a>
-                        <a href="#about">About</a>
+                        <a href="signup.html">Sign Up</a>
+                        <a href="about.html">About</a>
                         <a href="contact.html">Contact</a>
                         <a href="gallery.html" class="active">Gallery</a>
-                        <a href="#services">Services</a>
+                        <a href="services.html">Services</a>
                         <a href="index.html">Home</a>
                     </div>
                 </div>
             </nav> 
         </header> 
         <div class="container" id="gallery-content">
-            <div class="slideshow-container">
-                <div id="gallery1" class="slides fade">
-                    <img src="images/gallery1.jpg">
-                </div>
-                <div id="gallery2" class="slides fade">
-                    <img src="images/gallery2.jpg">
-                </div>
-                <div id="gallery3" class="slides fade">
-                    <img src="images/bg1.jpg">
-                </div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-
-            <script>
-                var slideIndex = 2;
-                showSlides(slideIndex);
-
-                function plusSlides(n) {
-                  showSlides(slideIndex += n);
-                }
-
-                function showSlides(n) {
-                  var i;
-                  var slides = document.getElementsByClassName("slides");
-                  if (n > slides.length) {slideIndex = 1}    
-                  if (n < 1) {slideIndex = slides.length}
-                  for (i = 0; i < slides.length; i++) {
-                      slides[i].style.display = "none";  
-                  }
-                  slides[slideIndex-1].style.display = "block";  
-                }
-            </script>
-
-        <!--        <div id="galery-text1">
-                    <p>There are trips that fit a sheet of paper. Then there are experiences that surpass the full power of words.Trips that take us beyond the map and, on the ride of the five senses, transport us beyond the reality we know!</p>
+            <div id="gallery1">
+                <img src="images/gallery1.jpg">
+                <div id="galleryText1">
+                    <h4 style="text-align: center;">THE VILLA</h4>
+                    <p>We are all visitors to this time, this place. We are just passing through. Our purpose here is to observe, to learn, to grow, to love... and then we return home.</p>
+                    <p><ul>
+                        <li>Stunning oceanview from all rooms</li>
+                        <li>50 steps to the beach</li>
+                        <li>Outdoor shower, pool and hot tub</li>
+                        <li>LCD, DVD, WiFi, game station & more</li>
+                        <li>Daily songbird wake up call</li>
+                    </ul></p>
                     <a href="services.html">
                         <button class="btn">Book Your Stay</button>
                     </a>
-                </div> -->
+                </div>
+            </div>
+            <div id="gallery2">
+                <div id="galleryText2">
+                    <h4 style="text-align: center;">THE BEACH</h4>
+                    <p>Sometimes you just need a break in a beautiful place, alone or with someone you love to just be. Change your location and you just may change yourself!</p>
+                    <a href="services.html">
+                        <button class="btn">Book Your Stay</button>
+                    </a>
+                </div>
+                <img src="images/gallery2.jpg">
+            </div>
+            <div id="gallery3">
+                <div id="galleryText3">
+                    <h4 style="text-align: center;">THE GOOD LIFE</h4>
+                    <p>You will never be completely at home again, because part of your heart will always be elsewhere. That is the price you pay for the richness of loving and knowing people in more than one place.</p>
+                    <a href="services.html">
+                        <button class="btn">Book Your Stay</button>
+                    </a>
+                </div>
+                <img src="images/gallery3.jpg">
+            </div>
         </div>
         <footer class="panel-footer">
             <div class="container">

@@ -240,48 +240,131 @@ input[type=submit]:hover {
 }
 
 /*--Gallery Page--*/
-.slideshow-container {
-  max-width: 750px;
-  max-height: 800px;
-  position: relative;
-  margin: auto;
-  height: auto;
-  float: left;
-}
+#gallery-content {
+    height: 2280px;
+    padding-bottom: 100px;
+  }
 
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  color: white;
-  font-size: 25px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
+  #gallery1 img {
+    margin-top: 180px;
+    width: 800px;
+    height: auto;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+  }
 
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+  #gallery1 div {
+    display: block;
+    position: absolute;
+    padding: 40px 70px 130px 70px;
+    height: 230px;
+    width: 350px;
+    left: 700px;
+    top: 250px;
+    background-color: #9dbbdf;
+    color: #ffffff;
+  }
 
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
+  #galleryText1 .btn {
+    position: absolute;
+    text-transform: uppercase;
+    background-color: white;
+    color: #9dbbdf;
+    font-size: 12px;
+    padding: 13px 20px;
+    margin: 10px 0px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
 
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
+  #galleryText1 .btn:hover {
+    color: white;
+    background-color: #4A5868;
+  }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
+  #gallery2 img {
+    float: right;
+    display: block;
+    margin-top: 700px;
+    height: 600px;
+    width: auto;
+    position: relative;
+    right: 250px;
+    z-index: -1;
+  }
+
+  #gallery2 div {
+    display: block;
+    position: absolute;
+    padding: 40px 70px 110px 70px;
+    height: 170px;
+    width: 340px;
+    left: 200px;
+    top: 895px;
+    background-color: #9dbbdf;
+    color: #ffffff;
+  }
+
+  #galleryText2 .btn {
+    position: absolute;
+    text-transform: uppercase;
+    background-color: white;
+    color: #9dbbdf;
+    font-size: 12px;
+    padding: 13px 20px;
+    margin: 10px 0px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  #galleryText2 .btn:hover {
+    color: white;
+    background-color: #4A5868;
+  }
+
+  #gallery3 img {
+    display: block;
+    width: 1140px;
+    height: auto;
+    position: relative;
+    top: 340px;
+    left: 100px;
+    right: 100px;
+    z-index: -1;
+  }
+
+  #gallery3 div {
+    display: block;
+    position: absolute;
+    padding: 40px 70px 130px 70px;
+    height: 170px;
+    width: 350px;
+    left: 450px;
+    top: 1550px;
+    background-color: #9dbbdf;
+    color: #ffffff;
+  }
+
+  #galleryText3 .btn {
+    position: absolute;
+    text-transform: uppercase;
+    background-color: white;
+    color: #9dbbdf;
+    font-size: 12px;
+    padding: 13px 20px;
+    margin: 10px 0px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  #galleryText3 .btn:hover {
+    color: white;
+    background-color: #4A5868;
+  }
 
 /*--Gallery Page ends--*/
