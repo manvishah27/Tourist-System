@@ -1,8 +1,8 @@
 header {
-  background-color: #fff;
-  border-radius: 0;
-  border: 0;
-  padding-bottom: 0;
+    background-color: #fff;
+    border-radius: 0;
+    border: 0;
+    padding-bottom: 0;
 }
 
 .topnav {
@@ -56,63 +56,6 @@ margin-top: 0px;
 padding-top: 0px;
 }
 
-* {
-    box-sizing: border-box;
-  }
-
-#signup-content h1 {
-  text-align: center;
-  margin: 10px auto;
-  width: 700px;
-  background-color: #9dbbdf;
-  color: #fff;
-  padding: 10px 150px;
-}
-
-
-#signup-content form {
-  display: block;
-  text-align: center;
-}
-
-.container {
-  text-align: center;
- /* align-self: center; */
-}
-
-input[type=text], input[type=email], textarea {
-width: 600px;
-padding: 12px;
-border: 1px solid #9dbbdf;
-background-color: #BFCCDB;
-border-radius: 4px;
-box-sizing: border-box;
-margin-top: 6px;
-margin-bottom: 16px;
-resize: vertical;
-font-family: Georgia, 'Times New Roman', Times, serif;
-color: #4A5868;
-}
-
-input[type=text]:hover, input[type=email]:hover, textarea:hover {
-background-color: #9dbbdf;
-}
-
-input[type=submit] {
-background-color: #4A5868;
-color: white;
-font-family: Georgia, 'Times New Roman', Times, serif;
-padding: 12px 20px;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-}
-
-input[type=submit]:hover {
-background-color: #9dbbdf;
-}
-
-
 /* Footer */
 .panel-footer {
 padding-top: 20px;
@@ -165,3 +108,34 @@ height: auto;
 padding: 5px;
 }
 
+#contact-content h1 {
+    text-align: center;
+    margin: 10px auto;
+    width: 700px;
+    background-color: #9dbbdf;
+    color: #fff;
+    padding: 10px 150px;
+  }
+
+  #contact-content p {
+    color: #4A5868;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 20px;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+  }
+
+  .img1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%; 
+  }
+
+  .img2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%; 
+  }
