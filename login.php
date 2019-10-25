@@ -1,69 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
 
-<head>
+    require_once "db/config.php";
+
+        session_start();
+        $name = $phone = $email = $password = "";
+        $errors = array();
+
+    if (isset($_POST['signup_btn'])) {
+
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        if(empty($name)) {
+            array_push($errors, "Username is required");
+        }
+
+        if(empty($phone)) {
+            array_push($errors, "Phone number is required");
+        }
+
+        if(empty($email)) {
+            array_push($errors, "Email is required");
+        }
+
+        if(empty($password)) {
+            array_push($errors, "Password is required");
+        }
+
+        if(count($errors) == 0) {
+            $sql = "INSERT INTO user(Name, Phone, Email, Password) VALUES('$name', '$phone', '$email', '$password')";
+            mysqli_query($conn, $sql);
+            $_SESSION['email'] = $email;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: index.php');
+        }
+    }
+
+    $email1 = $password1 = "";
+
+    if(isset($_POST['login_btn'])) {
+
+        $email1 = $_POST['email1'];
+        $password1 = $_POST['password1'];
+
+        if(empty($email1)) {
+            array_push($errors, "Email is required");
+        }
+
+        if(empty($password1)) {
+            array_push($errors, "Password is required");
+        }
+
+        if(count($errors) == 0) {
+            $query = "SELECT * FROM user WHERE Email='$email1' AND Password='$password1'";
+            $result = mysqli_query($conn, $query);
+            if(mysqli_num_rows($result) == 1) {
+                $_SESSION['email'] = $email1;
+                $_SESSION['success'] = "You are now logged in";
+                header("location: index.php");
+        }
+        else {
+            array_push($errors, "Email or Password incorrect");
+        }
+        }   
+    }
+    
+
+?>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
         <title>
             Intelligent Tourist System
         </title>
-        <link rel="stylesheet" type="text/css" href="css/signup.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <meta charset = "utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://kit.fontawesome.com/yourcode.js"></script>
+        <link rel="stylesheet" href="css/login_styles.css">
     </head>
+    <body>
+    	<div class="login-content">
+    		<div class="form-box">
+    			<div class="button-box">
+    				<div id="btn"></div>
+    				<button type="button" class="toggle-btn" onclick="login()">Login</button>
+    				<button type="button" class="toggle-btn" onclick="signup()">Sign Up</button>
+    			</div>
 
-<body>
-    <header>
-        <nav id="header">
-            <div class="container">
-                <a href="#" class="pull-left visible-md visible-lg"></a>
-                <div id="heading-name">
-                    <h1>Outlines</h1>
-                    <h4>journeys beyond the map</h4>
-                </div>
-                <div class="topnav" id="myTopnav">
-                    <a href="signup.php" class="active">Sign Up</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="services.html">Services</a>
-                    <a href="index.html">Home</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div id="signup-content">
-        <h1>Login</h1>
-    </div>
-    <div class="container" style="text-align: center;">
-        <form>
-            <input type="email" id="email" name="email" placeholder="Email" required><br>
-            <input type="text" id="password" name="password" placeholder="Password" required><br>
-            <input type="submit" value="Submit">
-        </form>
-        <p style="color: #4A5868; font-family: Georgia, 'Times New Roman', Times, serif;">
-            Don't have an account? <a href="signup.php">Sign Up now.</a>
-        </p>
-    </div>
-    <br>
-    <footer class="panel-footer">
-        <div class="container">
-            <div id="contactno">
-                <p>Mo : +9102221642356</p>
-                <p>Email : info@outlines.com</p>
-            </div>
-            <div class="row">
-                <div class="column" id="copyright">&copy; 2019 Outlines - All rights reserved</div>
-                <div class="column" id="sociallogo">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-    </footer> 
+    			<form id="login" class="input-group" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
-</body>
+                    <?php if (count($errors) > 0): ?>
+                        <div class="error">
+                            <?php foreach ($errors as $error): ?>
+                                <p><?php echo $error; ?></p>
+                            <?php endforeach ?>
+                        </div>
+                    <?php endif ?>
+
+    				<input type="email" name="email1" class="input-field" placeholder="Email">
+    				<input type="password" name="password1" class="input-field" placeholder="Password">
+    				<button type="submit" name="login_btn" class="submit-btn">Login</button>
+    			</form>
+
+    			<form id="signup" class="input-group" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+                    <?php if (count($errors) > 0): ?>
+                        <div class="error">
+                            <?php foreach ($errors as $error): ?>
+                                <p><?php echo $error; ?></p>
+                            <?php endforeach ?>
+                        </div>
+                    <?php endif ?>
+
+    				<input type="text" name="name" class="input-field" placeholder="Name">
+    				<input type="text" name="phone" class="input-field" placeholder="Phone">
+    				<input type="email" name="email" class="input-field" placeholder="Email">
+    				<input type="password" name="password" class="input-field" placeholder="Password">
+    				<button type="submit" name="signup_btn" class="submit-btn">Sign Up</button>
+    			</form>
+
+    		</div>
+    	</div>
+    </body>
+
+    <script>
+    	var x = document.getElementById("login");
+    	var y = document.getElementById("signup");
+    	var z = document.getElementById("btn");
+
+    	function signup(){
+    		x.style.left = "-400px";
+    		y.style.left = "50px";
+    		z.style.left = "110px";
+    	}
+
+    	function login(){
+    		x.style.left = "50px";
+    		y.style.left = "450px";
+    		z.style.left = "0";
+    	}
+
+    </script>
 
 </html>
