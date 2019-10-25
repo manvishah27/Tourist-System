@@ -37,7 +37,7 @@
               <a href="contact.php">Contact</a>
             </li>
             <li>
-              <a href="signup.php">Sign Up</a>
+              <a href="login.php">Login</a>
             </li>
           </ul>
         </div>
@@ -58,7 +58,7 @@
       <a href="contact.php">Contact</a>
     </li>
     <li>
-      <a href="signup.php">Sign Up</a>
+      <a href="login.php">Login</a>
     </li>
   </ul>
 

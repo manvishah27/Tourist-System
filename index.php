@@ -1,10 +1,11 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>
             Intelligent Tourist System
         </title>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 	    <meta charset = "utf-8">
@@ -36,9 +37,25 @@
             <li>
               <a href="contact.php">Contact</a>
             </li>
+
+            <?php if(isset($_SESSION['success']))
+              { 
+                unset($_SESSION['success']);
+            ?>
             <li>
-              <a href="signup.php">Sign Up</a>
+              <a href="logout.php">Logout</a>
             </li>
+            <?php 
+              }
+              else {
+            ?>
+            <li>
+              <a href="login.php">Login</a>
+            </li>
+            <?php
+              }
+            ?>
+            
           </ul>
         </div>
       </div>
@@ -58,7 +75,7 @@
       <a href="contact.php">Contact</a>
     </li>
     <li>
-      <a href="signup.php">Sign Up</a>
+      <a href="login.php">Login</a>
     </li>
   </ul>
 
@@ -90,7 +107,11 @@
         </div>
       </li>
     </ul>
-  </section>
+  </section><br>
+
+  <?php
+  include('search-bar.php');
+  ?>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
