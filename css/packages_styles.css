@@ -1,0 +1,159 @@
+/*-- rooms --*/
+.rom-btm {
+    margin-top: 2em;
+	box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.37);
+}
+.room-bottom h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #424242;
+}
+.room-bottom {
+    padding: 2em 0;
+}
+.rom-btm h4 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #424242;
+}
+.rom-btm p {
+    font-size: 15px;
+    color: #999;
+}
+.rom-btm h6 {
+    font-size: 1em;
+    font-weight: 700;
+    margin: 0.5em 0;
+}
+.room-right {
+    text-align: right;
+    padding: 3em 2em;
+}
+.room-midle {
+    padding: 1em;
+}
+.rom-btm h5 {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #999;
+}
+/*-- rooms --*/
+
+.errorWrap {
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #dd3d36;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+.succWrap{
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #5cb85c;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+
+/*-- selectroom --*/
+.selectroom {
+    padding: 5em 0 3em;
+}
+.selectroom_top {
+    padding: 2em;
+    box-shadow: 0px 0px 10px -4px #000;
+    margin-bottom: 2em;
+}
+.selectroom_right li {
+    display: inline-block;
+    float: left;
+    width: 21%;
+}
+.grand {
+    text-align: right;
+}
+.selectroom_right h2 {
+	font-size: 1.7em;
+    color: #424242;
+    font-weight: 500;
+    margin: 0;
+}	
+.selectroom_right h3 {
+    font-size: 1.7em;
+    font-weight: 600;
+	color:#424242;
+}
+p.dow {
+    font-size: 15px;
+    color: #999;
+    font-weight: 300;
+    line-height: 1.8em;
+	margin-bottom:1em;
+}
+.selectroom_right p {
+    font-size: 15px;
+    line-height: 1.6em;
+    font-weight: 300;
+    color: #999;
+}
+.selectroom_right ul {
+    margin-top: 1em;
+}
+.selectroom_right h6 {
+    font-size: 1em;
+    color: #999;
+    line-height: 1.8em;
+}
+.selectroom_right h4 {
+    font-size: 1.2em;
+    color: #34ad00;
+    line-height: 1.8em;
+	font-weight:600;
+}
+.selectroom_right span {
+    font-weight: 700;
+}
+.selectroom-info li {
+    display: inline-block;
+    float: left;
+}
+li.nam {
+    width: 22%;
+}
+li.mr
+{
+    width: 12%;
+}
+li.mr select {
+    padding: 4px 5px!important;
+    width: 72%;
+    color: #9E9E9E;
+    margin-top: 18px;
+	border:none;
+    border-bottom:1px solid rgba(0,0,0,.12);
+    padding: 5px 10px;
+    vertical-align: middle;
+}
+.selectroom input[type="text"] {
+    width: 92%;
+    color: #9E9E9E;
+    outline: none;
+    font-size: 14px;
+    padding: 10px 0px;
+    border: none;
+    border-bottom:1px solid rgba(0,0,0,.12);
+    -webkit-appearance: none;
+    margin-top: 10px;
+}
+.selectroom-info ul {
+    margin-top: 3em;
+}
+li.spe {
+    width: 100%;
+    margin-top: 3em;
+}
+li.spe  input[type="text"] {
+    width: 100%;
+}
+/*-- selectroom --*/

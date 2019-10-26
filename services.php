@@ -1,11 +1,10 @@
-
-
 <!DOCTYPE html>
 <html>
     <head>
         <title>
             Intelligent Tourist System
         </title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 	    <meta charset = "utf-8">
@@ -37,24 +36,9 @@
             <li>
               <a href="contact.php">Contact</a>
             </li>
-
-            <?php if(isset($_SESSION['success']))
-            {
-            ?>
-            <li>
-              <a href="logout.php">Logout</a>
-            </li>
-            <?php 
-              }
-              else {
-            ?>
             <li>
               <a href="login.php">Login</a>
             </li>
-            <?php
-              }
-            ?>
-            
           </ul>
         </div>
       </div>
@@ -78,57 +62,17 @@
     </li>
   </ul>
 
-  <!-- Section: Slider -->
-  <section class="slider">
-    <ul class="slides">
-      <li>
-        <img src="images/resort1.jpg">
-        <!-- random image -->
-        <div class="caption center-align">
-          <h2>Take Your Dream Vacation</h2>
-          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Work, Travel, Save, Repeat</h5>
+  <br>
+  <div class="select" id="mySelection" style="text-align: center;">
+        <div class="img1">
+            <a href="destination.php"><img src="images/destination.jpg" alt=""></a>
         </div>
-      </li>
-      <li>
-        <img src="images/resort2.jpg">
-        <!-- random image -->
-        <div class="caption left-align">
-          <h2>We Work With All Budgets</h2>
-          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Just travel for travel's sake.</h5>
+        <br>
+        <div class="img2">
+            <a href="accomodation.php"><img src="images/accomodation.jpg" alt=""></a>
         </div>
-      </li>
-      <li>
-        <img src="images/resort3.jpg">
-        <!-- random image -->
-        <div class="caption right-align">
-          <h2>Group & Individual Getaways</h2>
-          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Roll under the stars!</h5>
-        </div>
-      </li>
-    </ul>
-  </section><br>
-
-  <?php
-  include('search-bar.php');
-  ?>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-
-  <script>
-    // Sidenav
-    const sideNav = document.querySelector('.sidenav');
-    M.Sidenav.init(sideNav, {});
-
-    // Slider
-    const slider = document.querySelector('.slider');
-    M.Slider.init(slider, {
-      indicators: false,
-      height: 500,
-      transition: 500,
-      interval: 6000
-    });
-
-  </script>
+        <br>
+    </div>
 
   <footer class="section grey darken-3 darken-2 white-text">
     <div class="container">

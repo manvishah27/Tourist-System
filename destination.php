@@ -1,4 +1,6 @@
-
+<?php 
+  require_once 'db/config.php';
+  ?>
 
 <!DOCTYPE html>
 <html>
@@ -6,12 +8,19 @@
         <title>
             Intelligent Tourist System
         </title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/packages_styles.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+        <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+
 	    <meta charset = "utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+        <script>
+          new WOW().init();
+        </script>
 	</head>
 
     <body id="home" class="scrollspy">
@@ -37,24 +46,9 @@
             <li>
               <a href="contact.php">Contact</a>
             </li>
-
-            <?php if(isset($_SESSION['success']))
-            {
-            ?>
-            <li>
-              <a href="logout.php">Logout</a>
-            </li>
-            <?php 
-              }
-              else {
-            ?>
             <li>
               <a href="login.php">Login</a>
             </li>
-            <?php
-              }
-            ?>
-            
           </ul>
         </div>
       </div>
@@ -78,57 +72,45 @@
     </li>
   </ul>
 
-  <!-- Section: Slider -->
-  <section class="slider">
-    <ul class="slides">
-      <li>
-        <img src="images/resort1.jpg">
-        <!-- random image -->
-        <div class="caption center-align">
-          <h2>Take Your Dream Vacation</h2>
-          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Work, Travel, Save, Repeat</h5>
+  <div class="rooms">
+  <div class="container">
+    
+    <div class="room-bottom">
+      <h3>Package List</h3>
+
+          
+<?php 
+$sql = "SELECT * from tourpackages";
+$result = $conn->query($sql);
+$cnt=1;
+while($row=$result->fetch_assoc())
+{ ?>
+      <div class="rom-btm">
+        <div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
+          <img src="images/<?php echo htmlentities($row['image']);?>" class="img-responsive" alt="">
         </div>
-      </li>
-      <li>
-        <img src="images/resort2.jpg">
-        <!-- random image -->
-        <div class="caption left-align">
-          <h2>We Work With All Budgets</h2>
-          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Just travel for travel's sake.</h5>
+        <div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
+          <h4><?php echo htmlentities($row['name']);?></h4>
+          <h6>Type: <?php echo htmlentities($row['type']);?></h6>
+          <p><b>Location :</b> <?php echo htmlentities($row['location']);?></p>
+          <p><b>Features:  </b> <?php echo htmlentities($row['features']);?></p>
         </div>
-      </li>
-      <li>
-        <img src="images/resort3.jpg">
-        <!-- random image -->
-        <div class="caption right-align">
-          <h2>Group & Individual Getaways</h2>
-          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Roll under the stars!</h5>
+        <div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
+          <h5>USD <?php echo htmlentities($row['price']);?></h5>
+          <button btn waves-effect waves-light style="background-color: #424242; font-size: 1.2em;" name="action">
+            <a style="color: #fff; text-decoration: none;" href="package-details.php?pkgid=<?php echo htmlentities($row['package_id']);?>" class="view">Details</a>
+          </button>
         </div>
-      </li>
-    </ul>
-  </section><br>
+        <div class="clearfix"></div>
+      </div>
 
-  <?php
-  include('search-bar.php');
-  ?>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-
-  <script>
-    // Sidenav
-    const sideNav = document.querySelector('.sidenav');
-    M.Sidenav.init(sideNav, {});
-
-    // Slider
-    const slider = document.querySelector('.slider');
-    M.Slider.init(slider, {
-      indicators: false,
-      height: 500,
-      transition: 500,
-      interval: 6000
-    });
-
-  </script>
+<?php } ?>
+      
+    
+    
+    </div>
+  </div>
+</div>
 
   <footer class="section grey darken-3 darken-2 white-text">
     <div class="container">
