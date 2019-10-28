@@ -32,7 +32,7 @@
         if(count($errors) == 0) {
             $sql = "INSERT INTO user(Name, Phone, Email, Password) VALUES('$name', '$phone', '$email', '$password')";
             mysqli_query($conn, $sql);
-            $_SESSION['email'] = $email;
+            $_SESSION['login'] = $email;
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');
         }
@@ -57,7 +57,7 @@
             $query = "SELECT * FROM user WHERE Email='$email1' AND Password='$password1'";
             $result = mysqli_query($conn, $query);
             if(mysqli_num_rows($result) == 1) {
-                $_SESSION['email'] = $email1;
+                $_SESSION['login'] = $email1;
                 $_SESSION['success'] = "You are now logged in";
                 header("location: index.php");
         }

@@ -1,24 +1,30 @@
-<?php 
+<?php
   session_start();
   require_once 'db/config.php';
   error_reporting(0);
-
-  if(isset($_POST['submit2']))
+if(isset($_POST['submit2']))
 {
+
+echo 'hi';
+
 $pid=intval($_GET['pkgid']);
-$useremail=$_SESSION['email'];
-$fromdate=$_POST['fromdate'];
-$todate=$_POST['todate'];
-$sql="INSERT INTO booking(package_id,email,fromDate,toDate) VALUES(:pid,:useremail,:fromdate,:todate,:comment,:status)";
-$query = $conn->prepare($sql);
-$query->bindParam(':pid',$pid,PDO::PARAM_INT);
-$query->bindParam(':useremail',$useremail,PDO::PARAM_STR);
-$query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
-$query->bindParam(':todate',$todate,PDO::PARAM_STR);
-$query->bindParam(':comment',$comment,PDO::PARAM_STR);
-$query->execute();
+$email=$_SESSION['login'];
+$fromDate=$_POST['fromDate'];
+$toDate=$_POST['toDate'];
+$noOfPassengers=$_POST['noOfPassengers'];
+$comment=$_POST['comment'];
+
+
+$sql="INSERT INTO booking(package_id, email, fromDate, toDate, NoOfPassengers, comment) VALUES($pid, $email, $fromDate, $toDate, $noOfPassengers, $comment)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+/*s
 $lastInsertId = $conn->lastInsertId();
-if($lastInsertId)
+if(isset($lastInsertId))
 {
 $msg="Booked Successfully";
 }
@@ -26,13 +32,12 @@ else
 {
 $error="Something went wrong. Please try again";
 }
-
+*/
 }
-  ?>
-
-<!DOCTYPE html>
+?>
+<!DOCTYPE HTML>
 <html>
-    <head>
+<head>
         <title>
             Intelligent Tourist System
         </title>
@@ -65,122 +70,164 @@ $error="Something went wrong. Please try again";
 
   </head>
 
-    <body id="home" class="scrollspy">
-  <!-- Navbar -->
-  <div class="navbar-fixed">
-    <nav class="grey darken-3">
-      <div class="container">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo" style="letter-spacing: 4px;">Outlines</a>
-          <a href="#" data-target="mobile-nav" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
-          </a>
-          <ul class="right hide-on-med-and-down">
-            <li>
-              <a href="index.php">Home</a>
-            </li>
-            <li>
-              <a href="services.php">Services</a>
-            </li>
-            <li>
-              <a href="gallery.php">Gallery</a>
-            </li>
-            <li>
-              <a href="contact.php">Contact</a>
-            </li>
-            <li>
-              <a href="login.php">Login</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-  <ul class="sidenav" id="mobile-nav">
-    <li>
-      <a href="index.php">Home</a>
-    </li>
-    <li>
-      <a href="services.php">Services</a>
-    </li>
-    <li>
-      <a href="gallery.php">Gallery</a>
-    </li>
-    <li>
-      <a href="contact.php">Contact</a>
-    </li>
-    <li>
-      <a href="login.php">Login</a>
-    </li>
-  </ul>
+ <body id="home" class="scrollspy">
 
-  <!--- selectroom ---->
+<?php include('header.php'); ?>
+
+<?php if($error){?>
+	<div class="errorWrap">
+		<strong>ERROR</strong>:
+		<?php echo htmlentities($error); ?> 
+	</div>
+<?php } 
+	else if($msg){?>
+		<div class="succWrap">
+			<strong>SUCCESS</strong>:
+			<?php echo htmlentities($msg); ?>
+		</div>
+<?php }?>
+
+<!--- selectroom ---->
 <div class="selectroom">
-  <div class="container"> 
-
+	<div class="container">	
+		 
 <?php 
 $pid=intval($_GET['pkgid']);
 $sql = "SELECT * from tourpackages where package_id=$pid";
 $result = $conn->query($sql);
 //$query->bind_param('i', $pid);
 //$query->execute();
-$cnt=1;
-$row=$result->fetch_assoc()
-    ?>
-
-<form name="book" method="post">
-    <div class="selectroom_top">
-      <div class="col-md-4 selectroom_left wow fadeInLeft animated" data-wow-delay=".5s">
-        <img src="images/<?php echo htmlentities($row['image']);?>" class="img-responsive" alt="">
-      </div>
-      <div class="col-md-8 selectroom_right wow fadeInRight animated" data-wow-delay=".5s">
-        <h2><?php echo htmlentities($row['name']);?></h2>
-        <p class="dow">#PKG-<?php echo htmlentities($row['package_id']);?></p>
-        <p><b>Type :</b> <?php echo htmlentities($row['type']);?></p>
-        <p><b>Location :</b> <?php echo htmlentities($row['location']);?></p>
-          <p><b>Features: </b> <?php echo htmlentities($row['features']);?></p>
-          <div class="ban-bottom">
-        <div class="bnr-right">
-        <label class="inputLabel">From</label>
-        <input class="date" id="datepicker" type="text" placeholder="dd-mm-yyyy"  name="fromdate" required="">
-      </div>
-      <div class="bnr-right">
-        <label class="inputLabel">To</label>
-        <input class="date" id="datepicker1" type="text" placeholder="dd-mm-yyyy" name="todate" required="">
-      </div>
-      </div>
-            <div class="clearfix"></div>
-        <div class="grand">
-          <p>Grand Total</p>
-          <h3>USD.800</h3>
-        </div>
-      </div>
-    <h3>Package Details</h3>
-        <p style="padding-top: 1%"><?php $row['details'];?> </p> 
-        <div class="clearfix"></div>
-    </div>
+while($row=$result->fetch_assoc())
+{	?>
 
 
-    <div class="selectroom_top">
-<?php if($_SESSION['login'])
-          {?>
-            <li class="spe" align="center">
-          <button type="submit" name="submit2" class="btn-primary btn">Book</button>
-            </li>
-            <?php } else {?>
-              <li class="sigi" align="center" style="margin-top: 1%">
-              <a href="#" data-toggle="modal" data-target="#myModal4" class="btn-primary btn" >Book</a></li>
-              <?php } ?>
-          <div class="clearfix"></div>
-        </ul>
-      </div>
-      
-    </div>
+		<div class="selectroom_top">
+			<div class="col-md-4 selectroom_left wow fadeInLeft animated" data-wow-delay=".5s">
+				<img src="images/<?php echo htmlentities($row['image']);?>" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-8 selectroom_right wow fadeInRight animated" data-wow-delay=".5s">
+				<h2><?php echo htmlentities($row['name']);?></h2>
+				<p class="dow">#PKG-<?php echo htmlentities($row['package_id']); $package_id=$row['package_id'];?></p>
+				<p><b>Type :</b> <?php echo htmlentities($row['type']);?></p>
+				<p><b>Location :</b> <?php echo htmlentities($row['location']);?></p>
+					<p><b>Features</b> <?php echo htmlentities($row['features']);?></p>
+		
+						<div class="clearfix"></div>
+				<div class="grand">
+					<p>Amount</p>
+					<h3>&#x20b9; <?php echo htmlentities($row['price']); $price=$row['price']; ?></h3>
+				</div>
+			</div>
 
-  </form>
+		<h3>Details</h3>
+				<p style="padding-top: 1%"><?php echo htmlentities($row['details']);?> </p>	
+				<div class="clearfix"></div>
+		</div>
+<?php } ?>
+
+		<div class="selectroom_top" id="tour_details_form">
+			<h2>Travels</h2>
+			<div class="selectroom-info animated wow fadeInUp animated" data-wow-duration="1200ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp; margin-top: -70px">
+				<br>
+				<br>
+			<form name="book" method="post" action="package-details.php?pkgid=<?php echo htmlentities($package_id);?>">
+
+			<div class="bnr-right">
+				<label class="inputLabel">Package ID</label>
+				<input id="package_id" type="number" name="package_id" value="<?php echo $package_id; ?>" required="" readonly="">
+			</div>
+
+			<div class="bnr-right">
+				<label class="inputLabel">Package Price</label>
+				<input id="price" type="number" name="price" value="<?php echo $price; ?>" required="" readonly="">
+			</div>
+
+					<div class="ban-bottom">
+				<div class="bnr-right">
+				<label class="inputLabel">From</label>
+				<input class="date" id="datepicker" type="text" placeholder="yyyy-mm-dd"  name="fromDate" required="">
+			</div>
+			<div class="bnr-right">
+				<label class="inputLabel">To</label>
+				<input class="date" id="datepicker1" type="text" placeholder="yyyy-mm-dd" name="toDate" required="">
+			</div>
+			</div>
+			<div class="bnr-right">
+				<label class="inputLabel">No of Travellers</label>
+				<input id="noOfPassengers" type="number" name="noOfPassengers" required="">
+			</div>
+					<div class="spe">
+						<label class="inputLabel">Comment</label>
+						<input class="special" type="text" name="comment" required="">
+					</div> 
+					<?php if(isset($_SESSION['login']))
+					{?>
+						
+							<div class="spe" align="center">
+								<button type="submit" name="submit2" class="btn grey darken-3" onclick="openPayment()">Book</button>
+						</div>
+						<?php } else { ?>
+							<div class="sigi" align="center" style="margin-top: 1%">
+							<a href="login.php" class="btn grey darken-3" > Book</a></div>
+							<?php } ?>
+					<div class="clearfix"></div>
+				</ul>
+		</form>
+			</div>
+			
+		</div>
+
+	<script>
+		function openPayment() {
+			document.getElementById("tour_details_form").style.display = "none";
+			document.getElementById("payment_form").style.display = "block";
+		}
+	</script>
+
+	<?php
+	if(isset($_POST['noOfPassengers']) && isset($_POST['price']))
+	{
+	    $noOfPassengers = $_POST['noOfPassengers'];
+	    $price = $_POST['price'];
+	    $totalPrice = $price * $noOfPassengers;
+	}
+	 ?>
+
+		<div class="selectroom_top" id="payment_form" style="display: none;">
+			<h2>Travels</h2>
+			<div class="selectroom-info animated wow fadeInUp animated" data-wow-duration="1200ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp; margin-top: -70px">
+				<br>
+				<br>
+
+			<form method="post" action="Paytm/PaytmKit/pgRedirect.php">
+			   <!-- <label class="inputLabel">ORDER_ID::*</label> -->
+			    <input type="hidden" id="ORDER_ID" tabindex="1" maxlength="20" size="20"
+			            name="ORDER_ID" autocomplete="off"
+			            value="<?php echo  "ORDS" . rand(10000,99999999)?>" required>
+			    
+			    <label class="inputLabel">USER ID ::*</label>
+			    <input id="CUST_ID" tabindex="2" maxlength="12" size="12" name="CUST_ID" autocomplete="off" value="<?php echo $_SESSION['login'] ?>" required>
+			            
+			    <label class="inputLabel">INDUSTRY_TYPE_ID ::*</label>
+			    <input id="INDUSTRY_TYPE_ID" tabindex="4" maxlength="12" size="12" name="INDUSTRY_TYPE_ID" autocomplete="off" value="Retail" required="">
+
+			    <label class="inputLabel">Channel ::*</label>
+			    <input id="CHANNEL_ID" tabindex="4" maxlength="12" size="12" name="CHANNEL_ID" autocomplete="off" value="WEB" required="">
+			    
+			    <label class="inputLabel">txnAmount*</label>
+			    <input id="TXN_AMOUNT" title="TXN_AMOUNT" tabindex="10" type="number" name="TXN_AMOUNT" value="<?php echo $totalPrice ?>">
+			    
+			    <input value="CheckOut" type="submit" class="btn grey darken-3" onclick="">
+			  </form>
+
+		</div>
 
 
-  <footer class="section grey darken-3 white-text">
+	</div>
+</div>
+<!--- /selectroom ---->
+
+<footer class="section grey darken-3 white-text">
     <div class="container">
         <div class="row center">
             <div class="col s6" style="font-size: 1.2em">
@@ -205,7 +252,7 @@ $row=$result->fetch_assoc()
             </div>
         </div>
     </div>
-    </footer> 
+    </footer>
 
-    </body>
+</body>
 </html>

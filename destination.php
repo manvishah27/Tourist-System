@@ -23,54 +23,9 @@
         </script>
 	</head>
 
-    <body id="home" class="scrollspy">
-  <!-- Navbar -->
-  <div class="navbar-fixed">
-    <nav class="grey darken-3">
-      <div class="container">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo" style="letter-spacing: 4px;">Outlines</a>
-          <a href="#" data-target="mobile-nav" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
-          </a>
-          <ul class="right hide-on-med-and-down">
-            <li>
-              <a href="index.php">Home</a>
-            </li>
-            <li>
-              <a href="services.php">Services</a>
-            </li>
-            <li>
-              <a href="gallery.php">Gallery</a>
-            </li>
-            <li>
-              <a href="contact.php">Contact</a>
-            </li>
-            <li>
-              <a href="login.php">Login</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-  <ul class="sidenav" id="mobile-nav">
-    <li>
-      <a href="index.php">Home</a>
-    </li>
-    <li>
-      <a href="services.php">Services</a>
-    </li>
-    <li>
-      <a href="gallery.php">Gallery</a>
-    </li>
-    <li>
-      <a href="contact.php">Contact</a>
-    </li>
-    <li>
-      <a href="login.php">Login</a>
-    </li>
-  </ul>
+ <body id="home" class="scrollspy">
+  
+   <?php include('header.php'); ?>
 
   <div class="rooms">
   <div class="container">
@@ -96,7 +51,7 @@ while($row=$result->fetch_assoc())
           <p><b>Features:  </b> <?php echo htmlentities($row['features']);?></p>
         </div>
         <div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
-          <h5>USD <?php echo htmlentities($row['price']);?></h5>
+          <h5>&#x20b9; <?php echo htmlentities($row['price']);?></h5>
           <button btn waves-effect waves-light style="background-color: #424242; font-size: 1.2em;" name="action">
             <a style="color: #fff; text-decoration: none;" href="package-details.php?pkgid=<?php echo htmlentities($row['package_id']);?>" class="view">Details</a>
           </button>
