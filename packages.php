@@ -33,7 +33,7 @@
 			<link rel="stylesheet" href="css/main.css">			
 			<link rel="stylesheet" href="css/packages.css">
 		</head>
-		<body>	
+		<body>
 			<?php
 			include('header.php');
 			?>

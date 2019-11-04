@@ -2,7 +2,7 @@
   session_start();
   require_once 'db/config.php';
   error_reporting(0);
-/*if(isset($_POST['submit2']))
+if(isset($_POST['submit2']))
 {
 
 echo 'hi';
@@ -12,17 +12,16 @@ $email=$_SESSION['login'];
 $fromDate=$_POST['fromDate'];
 $toDate=$_POST['toDate'];
 $noOfPassengers=$_POST['noOfPassengers'];
-$comment=$_POST['comment'];
 
 
-$sql="INSERT INTO booking(package_id, email, fromDate, toDate, NoOfPassengers, comment) VALUES($pid, $email, $fromDate, $toDate, $noOfPassengers, $comment)";
+$sql="INSERT INTO booking(package_id, email, fromDate, toDate, NoOfPassengers) VALUES('$pid', '$email', '$fromDate', '$toDate', '$noOfPassengers')";
 
+/*
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-/*s
 $lastInsertId = $conn->lastInsertId();
 if(isset($lastInsertId))
 {
@@ -33,7 +32,7 @@ else
 $error="Something went wrong. Please try again";
 }
 */
-
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -142,7 +141,7 @@ while($row=$result->fetch_assoc())
 		
 						<div class="clearfix"></div>
 				<div>
-					<p>Amount</p>
+					<p style="color: #424242;">Amount</p>
 					<h4>&#x20b9; <?php echo htmlentities($row['price']); $price=$row['price']; ?></h4>
 				</div>
 				<br>
@@ -172,7 +171,7 @@ while($row=$result->fetch_assoc())
 							  </div>-->
 
 
-			<form name="book" class="form-wrap" method="post" action="package-details.php">
+			<form name="book" class="form-wrap" method="post" action="payment-details.php">
 
 			<div class="bnr-right">
 				<label class="inputLabel">Package ID</label>
@@ -197,15 +196,13 @@ while($row=$result->fetch_assoc())
 				<label class="inputLabel">No of Travellers</label>
 				<input id="noOfPassengers" class="form-control"s type="number" name="noOfPassengers" required="">
 			</div><br>
-					<div class="spe">
-						<label class="inputLabel">Comment</label>
-						<input class="special form-control" type="text" name="comment" required="">
-					</div> <br>
+					
 					<?php if(isset($_SESSION['login']))
 					{?>
 						
 							<div class="spe" align="center">
-								<button type="submit" name="submit2" class="btn grey darken-3" onclick="openPayment()">Book</button>
+								<a href="payment-details.php">
+								<button type="submit" name="submit2" class="btn grey darken-3">Book</button></a>
 						</div>
 						<?php } else { ?>
 							<div class="sigi" align="center" style="margin-top: 1%">
@@ -218,53 +215,6 @@ while($row=$result->fetch_assoc())
 			
 		</div>
 
-	<script>
-		function openPayment() {
-			document.getElementById("tour_details_form").style.display = "none";
-			document.getElementById("payment_form").style.display = "block";
-		}
-	</script>
-
-	<?php
-	if(isset($_POST['noOfPassengers']) && isset($_POST['price']))
-	{
-	    $noOfPassengers = $_POST['noOfPassengers'];
-	    $price = $_POST['price'];
-	    $totalPrice = $price * $noOfPassengers;
-	}
-	 ?>
-
-		<div class="selectroom_top" id="payment_form" style="display: none;">
-			<h2>Enter your Details</h2>
-			<div class="selectroom-info" data-wow-duration="1200ms" data-wow-delay="500ms" style="visibility: visible; margin-top: -70px">
-				<br>
-				<br>
-
-			<form method="post" action="Paytm/PaytmKit/pgRedirect.php">
-			   <!-- <label class="inputLabel">ORDER_ID::*</label> -->
-			    <input type="hidden" id="ORDER_ID" tabindex="1" maxlength="20" size="20"
-			            name="ORDER_ID" autocomplete="off"
-			            value="<?php echo  "ORDS" . rand(10000,99999999)?>" required>
-			    
-			    <label class="inputLabel">USER ID ::*</label>
-			    <input id="CUST_ID" tabindex="2" maxlength="12" size="12" name="CUST_ID" autocomplete="off" value="<?php echo $_SESSION['login'] ?>" required>
-			            
-			    <label class="inputLabel">INDUSTRY_TYPE_ID ::*</label>
-			    <input id="INDUSTRY_TYPE_ID" tabindex="4" maxlength="12" size="12" name="INDUSTRY_TYPE_ID" autocomplete="off" value="Retail" required="">
-
-			    <label class="inputLabel">Channel ::*</label>
-			    <input id="CHANNEL_ID" tabindex="4" maxlength="12" size="12" name="CHANNEL_ID" autocomplete="off" value="WEB" required="">
-			    
-			    <label class="inputLabel">txnAmount*</label>
-			    <input id="TXN_AMOUNT" title="TXN_AMOUNT" tabindex="10" type="number" name="TXN_AMOUNT" value="<?php echo $totalPrice ?>">
-			    
-			    <input value="CheckOut" type="submit" class="btn grey darken-3" onclick="">
-			  </form>
-
-		</div>
-
-
-	</div>
 </div>
 <!--- /selectroom ---->
 
