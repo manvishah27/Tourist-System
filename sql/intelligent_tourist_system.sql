@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2019 at 06:26 AM
+-- Generation Time: Nov 05, 2019 at 06:59 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -123,6 +123,24 @@ INSERT INTO `hotel` (`h_id`, `Name`, `Address`, `admin_id`) VALUES
 (30, 'Sofitel', 'Munich', 13),
 (40, 'Raddison Blu', 'Paris', 13),
 (63, 'Oberoi Udaivilas', 'Udaipur', 13);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hotelbooking`
+--
+
+CREATE TABLE `hotelbooking` (
+  `hbooking_id` int(11) NOT NULL,
+  `hotel_id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `fromDate` date NOT NULL,
+  `toDate` date NOT NULL,
+  `NoOfTravellers` int(11) DEFAULT NULL,
+  `TotalPrice` int(11) DEFAULT NULL,
+  `order_id` varchar(50) DEFAULT NULL,
+  `transaction_id` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -252,6 +270,12 @@ ALTER TABLE `hotel`
   ADD PRIMARY KEY (`h_id`);
 
 --
+-- Indexes for table `hotelbooking`
+--
+ALTER TABLE `hotelbooking`
+  ADD PRIMARY KEY (`hbooking_id`);
+
+--
 -- Indexes for table `hotelpackages`
 --
 ALTER TABLE `hotelpackages`
@@ -288,6 +312,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `booking`
   MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `hotelbooking`
+--
+ALTER TABLE `hotelbooking`
+  MODIFY `hbooking_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tourpackages`
