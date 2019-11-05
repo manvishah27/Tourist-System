@@ -24,7 +24,7 @@
 				<div class="container main-menu">
 					<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-					      <h1 style color: white;">Outlines</h1>
+					      <h1 style="color: white;">Outlines</h1>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
