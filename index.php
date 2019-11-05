@@ -43,7 +43,7 @@
 				          <li><a href="index.php">Home</a></li>
 				          <li><a href="about.html">About</a></li>
 				          <li><a href="packages.php">Packages</a></li>
-				          <li><a href="hotels.html">Hotels</a></li>			          					          		          
+				          <li><a href="hotels.php">Hotels</a></li>			          					          		          
 				          <li><a href="contact.html">Contact</a></li>
 				        </ul>
 				      </nav><!-- #nav-menu-container -->					      		  
@@ -112,7 +112,7 @@
 		                <div class="menu-content pb-70 col-lg-8">
 		                    <div class="title text-center">
 		                        <h1 class="mb-10">Popular Destinations</h1>
-		                        <p>We all live in an age that belongs to the young at heart.</p>
+		                        <p>Your next holiday destination is right here.<br>Look No more!</p>
 		                    </div>
 		                </div>
 		            </div>						
