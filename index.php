@@ -70,25 +70,23 @@
 							<div class="tab-content" id="myTabContent">
 							 
 							  <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
-								<form class="form-wrap">
-									<input type="text" class="form-control" name="name" placeholder="City or Region " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
+								<form class="form-wrap" method="post" action="hotel-search.php">
+									<input type="text" class="form-control" name="place" placeholder="City or Region " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
 									
 									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
 									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
-									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">						
-									<a href="#" class="primary-btn text-uppercase">Search Hotels</a>									
+									<input type="number" min="1" max="20" class="form-control" name="travellers" placeholder="Travellers " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Travellers '">					
+									<button href="hotel-search.php" name="hotel-search" class="primary-btn text-uppercase">Search Hotels</button>									
 								</form>							  	
-							  </div>
+							  </div> 
 							  <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
-								<form class="form-wrap">
-									<input type="text" class="form-control" name="name" placeholder="Destination " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
+								<form class="form-wrap" method="post" action="holiday-search.php">
+									<input type="text" class="form-control" name="destination" placeholder="Destination " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
 									
 									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
 									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
-									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">							
-									<a href="#" class="primary-btn text-uppercase">Search Holidays</a>									
+									<input type="number" min="1" max="20" class="form-control" name="travellers" placeholder="Travellers " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Travellers '">							
+									<button href="holiday-search.php" name="holiday-search" class="primary-btn text-uppercase">Search Holidays</button>									
 								</form>							  	
 							  </div>
 							</div>

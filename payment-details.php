@@ -135,7 +135,7 @@ include('header.php');
                 <input id="CHANNEL_ID" class="form-control" tabindex="4" maxlength="12" size="12" name="CHANNEL_ID" autocomplete="off" value="WEB" required=""><br>
                 
                 <label class="inputLabel">txnAmount*</label>
-                <input id="TXN_AMOUNT" class="form-control" title="TXN_AMOUNT" tabindex="10" type="number" name="TXN_AMOUNT" value="<?php echo $totalPrice ?>"><br>
+                <input id="TXN_AMOUNT" class="form-control" title="TXN_AMOUNT" tabindex="10" type="number" name="TXN_AMOUNT" value="<?php echo $totalPrice ?>" required="" readonly=""><br>
                 
                 <input value="CheckOut" type="submit" class="btn grey darken-3" onclick="">
               </form>

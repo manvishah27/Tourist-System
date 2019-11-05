@@ -174,22 +174,22 @@ while($row=$result->fetch_assoc())
 
 			<div class="bnr-right">
 				<label class="inputLabel">Hotel ID</label>
-				<input id="hotel_id" class="form-control" type="number" name="hotel_id" value="<?php echo $hotel_id; ?>" required="">
+				<input id="hotel_id" class="form-control" type="number" name="hotel_id" value="<?php echo $hotel_id; ?>" required="" readonly="">
 			</div><br>
 
 			<div class="bnr-right">
 				<label class="inputLabel">Hotel Price</label>
-				<input id="price" class="form-control" type="number" name="price" value="<?php echo $price; ?>" required="">
+				<input id="price" class="form-control" type="number" name="price" value="<?php echo $price; ?>" required="" readonly="">
 			</div><br>
 
 					<div class="ban-bottom">
 				<div class="bnr-right">
 				<label class="inputLabel">Check-In</label>
-				<input class="date form-control" id="datepicker" type="text" placeholder="yyyy-mm-dd"  name="fromDate" required="">
+				<input class="date form-control date-picker" id="datepicker" type="text" placeholder="yyyy-mm-dd"  name="fromDate" required="">
 			</div><br>
 			<div class="bnr-right">
 				<label class="inputLabel">Check-Out</label>
-				<input class="date form-control" id="datepicker1" type="text" placeholder="yyyy-mm-dd" name="toDate" required="">
+				<input class="date form-control date-picker" id="datepicker1" type="text" placeholder="yyyy-mm-dd" name="toDate" required="">
 			</div><br>
 			<div class="bnr-right">
 				<label class="inputLabel">No of Travellers</label>

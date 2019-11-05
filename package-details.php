@@ -175,22 +175,22 @@ while($row=$result->fetch_assoc())
 
 			<div class="bnr-right">
 				<label class="inputLabel">Package ID</label>
-				<input id="package_id" class="form-control" type="number" name="package_id" value="<?php echo $package_id; ?>" required="">
+				<input id="package_id" class="form-control" type="number" name="package_id" value="<?php echo $package_id; ?>" required="" readonly="">
 			</div><br>
 
 			<div class="bnr-right">
 				<label class="inputLabel">Package Price</label>
-				<input id="price" class="form-control" type="number" name="price" value="<?php echo $price; ?>" required="">
+				<input id="price" class="form-control" type="number" name="price" value="<?php echo $price; ?>" required="" readonly="">
 			</div><br>
 
 					<div class="ban-bottom">
 				<div class="bnr-right">
 				<label class="inputLabel">From</label>
-				<input class="date form-control" id="datepicker" type="text" placeholder="yyyy-mm-dd"  name="fromDate" required="">
+				<input class="date form-control date-picker" id="datepicker" type="text" placeholder="yyyy-mm-dd"  name="fromDate" required="">
 			</div><br>
 			<div class="bnr-right">
 				<label class="inputLabel">To</label>
-				<input class="date form-control" id="datepicker1" type="text" placeholder="yyyy-mm-dd" name="toDate" required="">
+				<input class="date form-control date-picker" id="datepicker1" type="text" placeholder="yyyy-mm-dd" name="toDate" required="">
 			</div><br>
 			<div class="bnr-right">
 				<label class="inputLabel">No of Travellers</label>
@@ -237,6 +237,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				</div>
 			</footer>
 			<!-- End footer Area -->	
+
+			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="js/popper.min.js"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>		
+ 			<script src="js/jquery-ui.js"></script>					
+  			<script src="js/easing.min.js"></script>			
+			<script src="js/hoverIntent.js"></script>
+			<script src="js/superfish.min.js"></script>	
+			<script src="js/jquery.ajaxchimp.min.js"></script>
+			<script src="js/jquery.magnific-popup.min.js"></script>						
+			<script src="js/jquery.nice-select.min.js"></script>					
+			<script src="js/owl.carousel.min.js"></script>							
+			<script src="js/mail-script.js"></script>	
+			<script src="js/main.js"></script>	
 
 </body>
 </html>

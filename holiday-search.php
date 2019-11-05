@@ -2,13 +2,16 @@
 	session_start();
   require_once 'db/config.php';
   error_reporting(0);
-  if(strlen($_SESSION['login'])==0)
-	{	
-header('location:index.php');
+
+  if(isset($_POST['holiday-search']))
+{
+  $place = $_POST['destination'];
+  $start = $_POST['start'];
+  $return = $_POST['return'];
+  $travellers = $_POST['travellers'];
 }
   ?>
-
-	<!DOCTYPE html>
+  	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
 		<!-- Mobile Specific Meta -->
@@ -51,56 +54,74 @@ header('location:index.php');
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Tour History				
+								Tour Packages				
 							</h1>	
+							<p class="text-white link-nav"><a href="index.php">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="packages.php"> Packages</a></p>
 						</div>	
 					</div>
 				</div>
 			</section>
-			<!-- End banner Area -->
-<div class="privacy">
-	<div class="container">
-		<form name="chngpwd" method="post" onSubmit="return valid();">
-		 <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
-				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
-	<p>
-	<table border="1" width="100%">
-<tr align="center">
-<th style="width: 180px;">Booking Id</th>
-<th style="width: 400px;">Package Name</th>	
-<th style="width: 180px;">From</th>
-<th style="width: 180px;">To</th>
-<th style="width: 140px;">No of Travellers</th>
-<th style="width: 180px;">Total Amount</th>
-</tr>
-<?php 
+			<!-- End banner Area -->	
+			
 
-$email=$_SESSION['login'];
-$sql = "SELECT booking.booking_id,booking.package_id,tourpackages.name,booking.fromDate,booking.toDate,booking.NoOfPassengers,booking.TotalPrice from booking join tourpackages on tourpackages.package_id=booking.package_id where email='$email'";
-$result = $conn->query($sql);
-while($row=$result->fetch_assoc())
-{
-?>
-<tr align="center">
-<td>#BK<?php echo htmlentities($row['booking_id']);?></td>
-<td><a href="package-details.php?pkgid=<?php echo htmlentities($row['package_id']);?>"><?php echo htmlentities($row['name']);?></a></td>
-<td><?php echo htmlentities($row['fromDate']);?></td>
-<td><?php echo htmlentities($row['toDate']);?></td>
-<td><?php echo htmlentities($row['NoOfPassengers']);?></td>
-<td><?php echo htmlentities($row['TotalPrice']);?></td>
-</tr>
-<?php } ?>
-	</table>
-		
-			</p>
-			</form>
+			<!-- Start destinations Area -->
+			<section class="destinations-area section-gap">
+				<div class="container">
+		            <div class="row d-flex justify-content-center">
+		                <div class="menu-content pb-40 col-lg-8">
+		                    <div class="title text-center">
+		                        <h1 class="mb-10">Our Packages</h1>
+		                        <p>Find the Best Packages at the Best Prices here</p>
+		                    </div>
+		                </div>
+		            </div>			
 
-		
-	</div>
-</div>
-<br>
+		        	<div class="row">
+		           <?php
+		           		$sql = "SELECT from tourpackages where location='$place'";
+						$result = $conn->query($sql);
+						while($row=$result->fetch_assoc())
+						{
+		           ?>		
+			
+						<div class="col-lg-4">
+							<div class="single-destinations">
+								<div class="thumb">
+									<img src="img/<?php echo htmlentities($row['image']);?>" alt="">
+								</div>
+								<div class="details">
+									<h4><?php echo htmlentities($row['name']);?></h4>
+									<p>
+										<?php echo htmlentities($row['location']);?>
+									</p>
+									<ul class="package-list">
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Type</span>
+											<span><?php echo htmlentities($row['type']);?></span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Price</span>
+											<span>&#x20b9; <?php echo htmlentities($row['price']);?></span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Extras</span>
+											<span>All Inclusive</span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<a href="package-details.php?pkgid=<?php echo htmlentities($row['package_id']);?>" class="details-btn">Details</a>
+										</li>													
+									</ul>
+								</div>
+							</div>
+						</div>
+                       
+					<?php } ?>
+						</section>
 
-			<!-- start home-about Area -->
+
+
+			
+
 			<section class="home-about-area">
 				<div class="container-fluid">
 					<div class="row align-items-center justify-content-end">
@@ -111,9 +132,9 @@ while($row=$result->fetch_assoc())
 								We‘ll make it for you
 							</h1>
 							<p>
-								inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.
+								Customized Tours Just for YOU!<br>At the best Prices.
 							</p>
-							<a href="#" class="primary-btn text-uppercase">request custom price</a>
+							<a href="contact.html" class="primary-btn text-uppercase">request custom price</a>
 						</div>
 						<div class="col-lg-6 col-md-12 home-about-right no-padding">
 							<img class="img-fluid" src="img/hotels/about-img.jpg" alt="">
