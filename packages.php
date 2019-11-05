@@ -61,7 +61,7 @@
 		                <div class="menu-content pb-70 col-lg-8">
 		                    <div class="title text-center">
 		                        <h1 class="mb-10">Today’s Hot Deals</h1>
-		                        <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day to.</p>
+		                        <p>You don't want to miss out on these!</p>
 		                    </div>
 		                </div>
 		            </div>						
@@ -126,7 +126,7 @@
 		                <div class="menu-content pb-40 col-lg-8">
 		                    <div class="title text-center">
 		                        <h1 class="mb-10">Our Packages</h1>
-		                        <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day to.</p>
+		                        <p>Find the Best Packages at the Best Prices here</p>
 		                    </div>
 		                </div>
 		            </div>			
@@ -187,9 +187,9 @@
 								We‘ll make it for you
 							</h1>
 							<p>
-								inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.
+								Customized Tours Just for YOU!<br>At the best Prices.
 							</p>
-							<a href="#" class="primary-btn text-uppercase">request custom price</a>
+							<a href="contact.html" class="primary-btn text-uppercase">request custom price</a>
 						</div>
 						<div class="col-lg-6 col-md-12 home-about-right no-padding">
 							<img class="img-fluid" src="img/hotels/about-img.jpg" alt="">
