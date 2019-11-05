@@ -112,7 +112,7 @@
 		                <div class="menu-content pb-70 col-lg-8">
 		                    <div class="title text-center">
 		                        <h1 class="mb-10">Popular Destinations</h1>
-		                        <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day.</p>
+		                        <p>We all live in an age that belongs to the young at heart.</p>
 		                    </div>
 		                </div>
 		            </div>						
