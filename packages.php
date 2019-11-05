@@ -47,7 +47,7 @@
 							<h1 class="text-white">
 								Tour Packages				
 							</h1>	
-							<!--<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="packages.html"> Tour Packages</a></p>-->
+							<p class="text-white link-nav"><a href="index.php">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="packages.php"> Packages</a></p>
 						</div>	
 					</div>
 				</div>
@@ -125,7 +125,7 @@
 		            <div class="row d-flex justify-content-center">
 		                <div class="menu-content pb-40 col-lg-8">
 		                    <div class="title text-center">
-		                        <h1 class="mb-10">Popular Destinations</h1>
+		                        <h1 class="mb-10">Our Packages</h1>
 		                        <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day to.</p>
 		                    </div>
 		                </div>
@@ -169,195 +169,14 @@
 								</div>
 							</div>
 						</div>
-
+                       
 					<?php } ?>
+						</section>
 
 
-<!--
 
-						<div class="col-lg-4">
-							<div class="single-destinations">
-								<div class="thumb">
-									<img src="img/packages/d2.jpg" alt="">
-								</div>
-								<div class="details">
-									<h4>Holiday Sea beach Blue Ocean</h4>
-									<p>
-										United staes of America
-									</p>
-									<ul class="package-list">
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Duration</span>
-											<span>06 days and 7 nights</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Date</span>
-											<span>18.04.2018</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Airport</span>
-											<span>Changi</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Extras</span>
-											<span>All Inclusive</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Price per person</span>
-											<a href="#" class="price-btn">$250</a>
-										</li>													
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-destinations">
-								<div class="thumb">
-									<img src="img/packages/d3.jpg" alt="">
-								</div>
-								<div class="details">
-									<h4>Holiday Sea beach Blue Ocean</h4>
-									<p>
-										United staes of America
-									</p>
-									<ul class="package-list">
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Duration</span>
-											<span>06 days and 7 nights</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Date</span>
-											<span>18.04.2018</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Airport</span>
-											<span>Changi</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Extras</span>
-											<span>All Inclusive</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Price per person</span>
-											<a href="#" class="price-btn">$250</a>
-										</li>													
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-destinations">
-								<div class="thumb">
-									<img src="img/packages/d4.jpg" alt="">
-								</div>
-								<div class="details">
-									<h4>Holiday Sea beach Blue Ocean</h4>
-									<p>
-										United staes of America
-									</p>
-									<ul class="package-list">
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Duration</span>
-											<span>06 days and 7 nights</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Date</span>
-											<span>18.04.2018</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Airport</span>
-											<span>Changi</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Extras</span>
-											<span>All Inclusive</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Price per person</span>
-											<a href="#" class="price-btn">$250</a>
-										</li>													
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-destinations">
-								<div class="thumb">
-									<img src="img/packages/d5.jpg" alt="">
-								</div>
-								<div class="details">
-									<h4>Holiday Sea beach Blue Ocean</h4>
-									<p>
-										United staes of America
-									</p>
-									<ul class="package-list">
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Duration</span>
-											<span>06 days and 7 nights</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Date</span>
-											<span>18.04.2018</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Airport</span>
-											<span>Changi</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Extras</span>
-											<span>All Inclusive</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Price per person</span>
-											<a href="#" class="price-btn">$250</a>
-										</li>													
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-destinations">
-								<div class="thumb">
-									<img src="img/packages/d6.jpg" alt="">
-								</div>
-								<div class="details">
-									<h4>Holiday Sea beach Blue Ocean</h4>
-									<p>
-										United staes of America
-									</p>
-									<ul class="package-list">
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Duration</span>
-											<span>06 days and 7 nights</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Date</span>
-											<span>18.04.2018</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Airport</span>
-											<span>Changi</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Extras</span>
-											<span>All Inclusive</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Price per person</span>
-											<a href="#" class="price-btn">$250</a>
-										</li>													
-									</ul>
-								</div>
-							</div>
-						</div>																														
-					</div>
-				</div>	
-			</section>-->
-			<!-- End destinations Area -->
 			
 
-			<!-- Start home-about Area -->
-			<br>
 			<section class="home-about-area">
 				<div class="container-fluid">
 					<div class="row align-items-center justify-content-end">
@@ -373,7 +192,7 @@
 							<a href="#" class="primary-btn text-uppercase">request custom price</a>
 						</div>
 						<div class="col-lg-6 col-md-12 home-about-right no-padding">
-							<img class="img-fluid" src="img/packages/about-img.jpg" alt="">
+							<img class="img-fluid" src="img/hotels/about-img.jpg" alt="">
 						</div>
 					</div>
 				</div>	
@@ -387,7 +206,8 @@
 					
 					<div class="row footer-bottom d-flex justify-content-between align-items-center">
 						<p class="col-lg-8 col-sm-12 footer-text m-0">
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with by Outlines</p>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Website is made by Outlines</p>
+					
 						<div class="col-lg-4 col-sm-12 footer-social">
 							<a href="#"><i class="fa fa-facebook"></i></a>
 							<a href="#"><i class="fa fa-twitter"></i></a>
@@ -397,8 +217,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					</div>
 				</div>
 			</footer>
-			<!-- End footer Area -->	
-
+			<!-- End footer Area -->
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="js/popper.min.js"></script>
 			<script src="js/vendor/bootstrap.min.js"></script>			
