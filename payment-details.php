@@ -5,7 +5,7 @@
 if(isset($_POST['submit2']))
 {
 
-echo 'hi';
+
 
 $pid=intval($_GET['pkgid']);
 $email=$_SESSION['login'];
@@ -124,6 +124,9 @@ include('header.php');
                 
                 <label class="inputLabel">USER ID ::*</label>
                 <input id="CUST_ID" class="form-control" tabindex="2" maxlength="12" size="12" name="CUST_ID" autocomplete="off" value="<?php echo $_SESSION['login'] ?>" required><br>
+
+                <label class="inputLabel">Package ID:</label>
+                <input id="PKG_ID" class="form-control" tabindex="2" maxlength="12" size="12" name="PKG_ID" autocomplete="off" value="<?php echo $pid ?>" required><br>
                         
                 <label class="inputLabel">INDUSTRY_TYPE_ID ::*</label>
                 <input id="INDUSTRY_TYPE_ID" class="form-control" tabindex="4" maxlength="12" size="12" name="INDUSTRY_TYPE_ID" autocomplete="off" value="Retail" required=""><br>
@@ -224,7 +227,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     </div>
                 </div>
             </footer>
-            <!-- End footer Area -->    
+            <!-- End footer Area --> 
+            <script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="js/popper.min.js"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>		
+ 			<script src="js/jquery-ui.js"></script>					
+  			<script src="js/easing.min.js"></script>			
+			<script src="js/hoverIntent.js"></script>
+			<script src="js/superfish.min.js"></script>	
+			<script src="js/jquery.ajaxchimp.min.js"></script>
+			<script src="js/jquery.magnific-popup.min.js"></script>						
+			<script src="js/jquery.nice-select.min.js"></script>					
+			<script src="js/owl.carousel.min.js"></script>							
+			<script src="js/mail-script.js"></script>	
+			<script src="js/main.js"></script>	   
 
     </body>
     </html>

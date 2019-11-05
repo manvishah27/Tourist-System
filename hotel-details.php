@@ -7,14 +7,14 @@
 
 
 
-$pid=intval($_GET['pkgid']);
+$hid=intval($_GET['hotel_id']);
 $email=$_SESSION['login'];
 $fromDate=$_POST['fromDate'];
 $toDate=$_POST['toDate'];
 $noOfPassengers=$_POST['noOfPassengers'];
 
 
-$sql="INSERT INTO booking(package_id, email, fromDate, toDate, NoOfPassengers) VALUES('$pid', '$email', '$fromDate', '$toDate', '$noOfPassengers')";
+$sql="INSERT INTO hotelbooking(hotel_id, email, fromDate, toDate, NoOfTravellers) VALUES('$hotel_id', '$email', '$fromDate', '$toDate', '$NoOfTravellers')";
 
 
 if ($conn->query($sql) === TRUE) {
@@ -92,9 +92,9 @@ include('header.php');
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Tour Packages				
+								Hotels				
 							</h1>	
-							<!--<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="packages.html"> Tour Packages</a></p>-->
+							<p class="text-white link-nav"><a href="index.php">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="hotels.php"> Hotels</a></p>
 						</div>	
 					</div>
 				</div>
@@ -119,8 +119,8 @@ include('header.php');
 	<div class="container">	
 		 
 <?php 
-$pid=intval($_GET['pkgid']);
-$sql = "SELECT * from tourpackages where package_id=$pid";
+$hid=intval($_GET['hotel_id']);
+$sql = "SELECT * from hotelpackages where hotel_id=$hid";
 $result = $conn->query($sql);
 //$query->bind_param('i', $pid);
 //$query->execute();
@@ -134,10 +134,9 @@ while($row=$result->fetch_assoc())
 			</div>
 			<div class="col-md-8 selectroom_right" data-wow-delay=".5s">
 				<h2><?php echo htmlentities($row['name']);?></h2>
-				<p class="dow">#PKG-<?php echo htmlentities($row['package_id']); $package_id=$row['package_id'];?></p>
+				<p class="dow"><?php echo htmlentities($row['hotel_id']); $hotel_id=$row['hotel_id'];?></p>
 				<p><b>Type :</b> <?php echo htmlentities($row['type']);?></p>
 				<p><b>Location :</b> <?php echo htmlentities($row['location']);?></p>
-					<p><b>Features</b> <?php echo htmlentities($row['features']);?></p>
 		
 						<div class="clearfix"></div>
 				<div>
@@ -147,8 +146,8 @@ while($row=$result->fetch_assoc())
 				<br>
 			</div>
 
-		<h3>Details</h3>
-				<p style="padding-top: 1%"><?php echo htmlentities($row['details']);?> </p>	
+		<h3>Features</h3>
+				<p style="padding-top: 1%"><?php echo htmlentities($row['features']);?> </p>	
 				<div class="clearfix"></div>
 		</div>
 <?php } ?>
@@ -171,30 +170,30 @@ while($row=$result->fetch_assoc())
 							  </div>-->
 
 
-			<form name="book" class="form-wrap" method="post" action="payment-details.php">
+			<form name="book" class="form-wrap" method="post" action="hotelpayment-details.php">
 
 			<div class="bnr-right">
-				<label class="inputLabel">Package ID</label>
-				<input id="package_id" class="form-control" type="number" name="package_id" value="<?php echo $package_id; ?>" required="">
+				<label class="inputLabel">Hotel ID</label>
+				<input id="hotel_id" class="form-control" type="number" name="hotel_id" value="<?php echo $hotel_id; ?>" required="">
 			</div><br>
 
 			<div class="bnr-right">
-				<label class="inputLabel">Package Price</label>
+				<label class="inputLabel">Hotel Price</label>
 				<input id="price" class="form-control" type="number" name="price" value="<?php echo $price; ?>" required="">
 			</div><br>
 
 					<div class="ban-bottom">
 				<div class="bnr-right">
-				<label class="inputLabel">From</label>
+				<label class="inputLabel">Check-In</label>
 				<input class="date form-control" id="datepicker" type="text" placeholder="yyyy-mm-dd"  name="fromDate" required="">
 			</div><br>
 			<div class="bnr-right">
-				<label class="inputLabel">To</label>
+				<label class="inputLabel">Check-Out</label>
 				<input class="date form-control" id="datepicker1" type="text" placeholder="yyyy-mm-dd" name="toDate" required="">
 			</div><br>
 			<div class="bnr-right">
 				<label class="inputLabel">No of Travellers</label>
-				<input id="noOfPassengers" class="form-control"s type="number" name="noOfPassengers" required="">
+				<input id="NoOfTravellers" class="form-control"s type="number" name="NoOfTravellers" required="">
 			</div><br>
 					
 					<?php if(isset($_SESSION['login']))
@@ -219,7 +218,7 @@ while($row=$result->fetch_assoc())
 <!--- /selectroom ---->
 
 <!-- start footer Area -->		
-<footer class="footer-area section-gap">
+			<footer class="footer-area section-gap">
 				<div class="container">
 
 					
@@ -236,7 +235,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					</div>
 				</div>
 			</footer>
-			<!-- End footer Area -->	
+			<!-- End footer Area -->
+			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="js/popper.min.js"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>		
+ 			<script src="js/jquery-ui.js"></script>					
+  			<script src="js/easing.min.js"></script>			
+			<script src="js/hoverIntent.js"></script>
+			<script src="js/superfish.min.js"></script>	
+			<script src="js/jquery.ajaxchimp.min.js"></script>
+			<script src="js/jquery.magnific-popup.min.js"></script>						
+			<script src="js/jquery.nice-select.min.js"></script>					
+			<script src="js/owl.carousel.min.js"></script>							
+			<script src="js/mail-script.js"></script>	
+			<script src="js/main.js"></script>		
 
 </body>
 </html>
