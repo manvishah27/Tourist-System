@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "password";
+$password = "";
 $dbname = "intelligent_tourist_system";
  
 $conn = mysqli_connect($servername, $username, $password, $dbname);
