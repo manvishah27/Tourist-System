@@ -2,6 +2,14 @@
 	session_start();
   require_once 'db/config.php';
   error_reporting(0);
+
+  if(isset($_POST['holiday-search']))
+{
+  $place = $_POST['destination'];
+  $start = $_POST['start'];
+  $return = $_POST['return'];
+  $travellers = $_POST['travellers'];
+}
   ?>
   	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -54,70 +62,6 @@
 				</div>
 			</section>
 			<!-- End banner Area -->	
-
-			<!-- Start hot-deal Area -->
-			<section class="hot-deal-area section-gap">
-				<div class="container">
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">Today’s Hot Deals</h1>
-		                        <p>You don't want to miss out on these!</p>
-		                    </div>
-		                </div>
-		            </div>						
-					<div class="row justify-content-center">
-						<div class="col-lg-10 active-hot-deal-carusel">
-							<div class="single-carusel">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="img/packages/hot-deal.jpg" alt="">
-								</div>
-								<div class="price-detials">
-									<a href="#" class="price-btn">Starting From <span>$250</span></a>
-								</div>
-								<div class="details">
-									<h4 class="text-white">Ancient Architecture</h4>
-									<p class="text-white">
-										Cairo, Egypt
-									</p>
-								</div>								
-							</div>
-							<div class="single-carusel">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="img/packages/hot-deal.jpg" alt="">
-								</div>
-								<div class="price-detials">
-									<a href="#" class="price-btn">Starting From <span>$250</span></a>
-								</div>
-								<div class="details">
-									<h4 class="text-white">Ancient Architecture</h4>
-									<p class="text-white">
-										Cairo, Egypt
-									</p>
-								</div>								
-							</div>
-							<div class="single-carusel">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="img/packages/hot-deal.jpg" alt="">
-								</div>
-								<div class="price-detials">
-									<a href="#" class="price-btn">Starting From <span>$250</span></a>
-								</div>
-								<div class="details">
-									<h4 class="text-white">Ancient Architecture</h4>
-									<p class="text-white">
-										Cairo, Egypt
-									</p>
-								</div>								
-							</div>														
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End hot-deal Area -->
 			
 
 			<!-- Start destinations Area -->
@@ -134,7 +78,7 @@
 
 		        	<div class="row">
 		           <?php
-		           		$sql = "SELECT * from tourpackages";
+		           		$sql = "SELECT from tourpackages where location='$place'";
 						$result = $conn->query($sql);
 						while($row=$result->fetch_assoc())
 						{
